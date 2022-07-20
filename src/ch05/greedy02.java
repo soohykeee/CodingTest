@@ -13,58 +13,38 @@ package ch05;
         미완
 */
 
-import java.util.ArrayDeque;
 import java.util.Arrays;
-import java.util.Deque;
-import java.util.EnumSet;
 
-// 모르겠당
 public class greedy02 {
+
+    public int getAverage(int[] prices, int from, int to) {
+
+        int sum = 0;
+        for (int i = from; i <= to; i++) {
+            sum+=prices[i];
+        }
+
+        return sum / (to - from + 1);
+
+    }
 
     public int solution(int[] prices, int d, int k) {
 
-        int answer = 0;
-
-
-        Deque<Integer> deque = new ArrayDeque<>();
-
+        int n = prices.length;
         Arrays.sort(prices);
-        for (int x : prices) {
-            deque.add(x);
+
+        if (prices[n - 1] - prices[0] <= d) {
+            return getAverage(prices, 0, n - 1);
+        } else if (prices[n - 2] - prices[1] <= d) {
+            return getAverage(prices, 1, n - 2);
+        }
+        for (int i = 0; i <= (n - k); i++) {
+            if (prices[i + k -1] - prices[i] <= d) {
+                return getAverage(prices, i, i + k - 1);
+            }
         }
 
-        int sum = 0;
-        // 1번
-        if (deque.peekLast() - deque.peekFirst() <= d) {
-            int count = deque.size();
-            while (!deque.isEmpty()) {
-                sum += deque.poll();
-            }
-            answer = sum / count;
-            return answer;
-        }
-        // 2번
-        else if (deque.pollLast() - deque.pollFirst() > d && deque.peekLast() - deque.peekFirst() <= d) {
-            int count = deque.size();
-            while (!deque.isEmpty()) {
-                sum += deque.poll();
-            }
-            answer = sum / count;
-            return answer;
-        }
-        //3번
-       /* else if () {
-        }*/
-        //4번
-        else {
-            int count=0;
-            while (count < deque.size()) {
-                answer=deque.poll();
-                count++;
-            }
-            return answer;
-        }
-
+        return prices[(n-1)/2];
     }
 
     public static void main(String[] args) {
@@ -74,16 +54,16 @@ public class greedy02 {
         System.out.println(T.solution(prices1, 4, 3));
 
         int[] prices2 = {4, 5, 6, 7, 8};
-        System.out.println(T.solution(prices1, 2, 1));
+        System.out.println(T.solution(prices2, 2, 1));
 
         int[] prices3 = {4, 5, 6, 7, 8};
-        System.out.println(T.solution(prices1, 1, 2));
+        System.out.println(T.solution(prices3, 1, 2));
 
         int[] prices4 = {8, 4, 5, 7, 6};
-        System.out.println(T.solution(prices1, 1, 3));
+        System.out.println(T.solution(prices4, 1, 3));
 
         int[] prices5 = {1, 8, 1, 8, 1, 8};
-        System.out.println(T.solution(prices1, 6, 4));
+        System.out.println(T.solution(prices5, 6, 4));
         // 1, 1, 1, 8, 8, 8
 
     }

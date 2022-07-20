@@ -1,39 +1,60 @@
 package ch05;
 
 /*
-씨름 선수(그리디)
-        현수는 씨름 감독입니다. 현수는 씨름 선수를 선발공고를 냈고, N명의 지원자가 지원을 했습
-        니다. 현수는 각 지원자의 키와 몸무게 정보를 알고 있습니다.
-        현수는 씨름 선수 선발 원칙을 다음과 같이 정했습니다.
-        “다른 모든 지원자와 일대일 비교하여 키와 몸무게 중 적어도 하나는 크거나, 무거운 지원자
-        만 뽑기로 했습니다.”
-        만약 A라는 지원자보다 키도 크고 몸무게도 무거운 지원자가 존재한다면 A지원자는 탈락입니
-        다.
-        모르겠당
+최대 수입 스케쥴
+        현수는 유명한 강연자이다. N개이 기업에서 강연 요청을 해왔다. 각 기업은 D일 안에 와서 강
+        연을 해 주면 M만큼의 강연료를 주기로 했다.
+        각 기업이 요청한 D와 M의 정보를 바탕으로 가장 많을 돈을 벌 수 있도록 강연 스케쥴을 짜
+        야 한다.
+        단 강연의 특성상 현수는 하루에 하나의 기업에서만 강연을 할 수 있다.
 */
 
-public class greedy08 {
+import java.util.Arrays;
+import java.util.Comparator;
 
-    public int solution(int n, int[][] nums) {
+public class greedy08 {
+    public int solution(int[][] times) {
+
         int answer = 0;
 
+        Arrays.sort(times, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                if (o1[0] == o2[0]) {
+                    return o2[1] - o1[1];
+                } else {
+                    return o2[0] - o1[0];
+                }
+            }
+        });
 
+        for (int i = 0; i < times.length; i++) {
+            for (int j = 0; j < times[0].length; j++) {
+                System.out.print(times[i][j]+" ");
+            }
+            System.out.println("");
+        }
 
 
 
         return answer;
+
     }
 
     public static void main(String[] args) {
         greedy08 T = new greedy08();
 
-        int[][] nums = {{172, 67}, {183, 65}, {180, 70}, {170, 72}, {181, 60}};
-        // 183-65, 181-60, 180-70, 172-67, 170-72  키순
-        // 170-72, 180-70, 172-67, 183-65, 181-60  무게순
+        int[][] times1 = {{50, 2}, {20, 1}, {40, 2}, {60, 3}, {30, 3}, {30, 1}};
+        // 20-1, 30-1, 40-2, 50-2, 30-3, 60-3
+        // 60-3, 50-2, 40-2, 30-3, 30-1, 20-1
+        System.out.println(T.solution(times1));
 
-        // 181-60, 180-70, 172-67  나머지 키순
-        // 180-70, 172-67, 181-60  나머지 무게순
-        System.out.println(T.solution(5, nums));
+        int[][] times2 = {{50, 2}, {40, 2}, {20, 1}, {10, 1}};
+        // 10-1, 20-1, 40-2, 50-2
+        // 50-2, 40-2, 20-1, 10-1
+        System.out.println(T.solution(times2));
 
     }
+
+
 }

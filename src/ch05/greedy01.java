@@ -17,7 +17,7 @@ public class greedy01 {
 
     public int solution(int[] nums, int m) {
 
-        int answer=0;
+       /* int answer=0;
         Deque<Integer> deque = new ArrayDeque<>();
 
         //deque 에 집어넣기 전에 sort 후 삽입
@@ -35,6 +35,26 @@ public class greedy01 {
             } else {
                 deque.poll();
                 deque.pollLast();
+                answer++;
+            }
+        }
+
+        return answer;*/
+
+        // 굳이 deque를 사용할 필요는 없음
+
+        int answer = 0;
+        Arrays.sort(nums);
+
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            if (nums[left] + nums[right] > m) {
+                right--;
+                answer++;
+            } else {
+                right--;
+                left++;
                 answer++;
             }
         }
