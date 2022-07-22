@@ -10,32 +10,36 @@ package ch05;
 */
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.PriorityQueue;
 
 public class greedy08 {
     public int solution(int[][] times) {
 
         int answer = 0;
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Collections.reverseOrder());
 
         Arrays.sort(times, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
-                if (o1[0] == o2[0]) {
-                    return o2[1] - o1[1];
-                } else {
-                    return o2[0] - o1[0];
-                }
+                return o2[1] - o1[1];
             }
         });
 
-        for (int i = 0; i < times.length; i++) {
-            for (int j = 0; j < times[0].length; j++) {
-                System.out.print(times[i][j]+" ");
+        int maxd = times[0][1];
+        int j = 0;
+        for (int i = maxd; i >= 1; i--) {
+            for (; j < times.length; j++) {
+                if (times[j][1] < i) {
+                    break;
+                }
+                priorityQueue.offer(times[j][0]);
             }
-            System.out.println("");
+            if (!priorityQueue.isEmpty()) {
+                answer += priorityQueue.poll();
+            }
         }
-
-
 
         return answer;
 
@@ -45,12 +49,10 @@ public class greedy08 {
         greedy08 T = new greedy08();
 
         int[][] times1 = {{50, 2}, {20, 1}, {40, 2}, {60, 3}, {30, 3}, {30, 1}};
-        // 20-1, 30-1, 40-2, 50-2, 30-3, 60-3
         // 60-3, 50-2, 40-2, 30-3, 30-1, 20-1
         System.out.println(T.solution(times1));
 
         int[][] times2 = {{50, 2}, {40, 2}, {20, 1}, {10, 1}};
-        // 10-1, 20-1, 40-2, 50-2
         // 50-2, 40-2, 20-1, 10-1
         System.out.println(T.solution(times2));
 
