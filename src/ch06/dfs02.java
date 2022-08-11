@@ -6,20 +6,27 @@ package ch06;
         해서 출력해야 합니다.
 */
 
-public class recursion02 {
+public class dfs02 {
 
-    public void solution(int n) {
+    String answer="";
+
+    public void DFS(int n){
         if (n == 0) {
             return;
         } else {
-            solution(n / 2);
-            System.out.print(n % 2);
+            DFS(n / 2);
+            answer += (n % 2);
         }
     }
 
-    public static void main(String[] args) {
-        recursion02 T = new recursion02();
+    public String solution(int n) {
+        DFS(n);
+        return answer;
+    }
 
-        T.solution(11);
+    public static void main(String[] args) {
+        dfs02 T = new dfs02();
+
+        System.out.println(T.solution(11));
     }
 }

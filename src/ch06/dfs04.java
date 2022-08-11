@@ -9,10 +9,11 @@ package ch06;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class recursion04 {
+public class dfs04 {
 
     Stack<Integer> stack = new Stack<>();
     static int n, m;
+    // ch는 체크를 위한 배열   1이면 사용, 0이면 미사용
     static int[] num, ch;
 
     public void solution(int L) {
@@ -37,7 +38,7 @@ public class recursion04 {
     }
 
     public static void main(String[] args) {
-        recursion04 T = new recursion04();
+        dfs04 T = new dfs04();
 
         Scanner kb = new Scanner(System.in);
         n = kb.nextInt();

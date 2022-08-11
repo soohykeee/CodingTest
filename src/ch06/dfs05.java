@@ -12,12 +12,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
 
-public class recursion05 {
+public class dfs05 {
 
     int answer = 0, target, m;
     ArrayList<Integer> nums = new ArrayList<>();
     Stack<Integer> stack = new Stack<>();
     int[] ch;
+    // 시간복잡도를 줄이기 위해서 break를 하기 위한 변수
     boolean flag = false;
 
     public void DFS(int L) {
@@ -43,6 +44,7 @@ public class recursion05 {
 
         target = n;
         int temp = n;
+        // 각 자리 숫자를 ArrayList nums에 초기화 + 정렬
         while (temp > 0) {
             int t = temp % 10;
             nums.add(t);
@@ -59,9 +61,9 @@ public class recursion05 {
     }
 
     public static void main(String[] args) {
-        recursion05 T = new recursion05();
+        dfs05 T = new dfs05();
 
-        System.out.println(T.solution(123));
+        System.out.println(T.solution(20573));
 
     }
 

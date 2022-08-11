@@ -9,7 +9,7 @@ package ch06;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class recursion06 {
+public class dfs06 {
 
     static int n, m;
     Stack<Integer> stack = new Stack<>();
@@ -32,7 +32,7 @@ public class recursion06 {
     }
 
     public static void main(String[] args) {
-        recursion06 T = new recursion06();
+        dfs06 T = new dfs06();
         Scanner scanner = new Scanner(System.in);
 
         n = scanner.nextInt();
