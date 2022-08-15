@@ -23,14 +23,20 @@ public class graphBfs01 {
         queue.offer(0);
         ch[0] = 1;
 
+        // queue 에 들어가는 값의 정보는, 현수가 점프한 후의 위치정보가 저장
         while (!queue.isEmpty()) {
             int len = queue.size();
             for (int i = 0; i < len; i++) {
                 int x = queue.poll();
+                // j는 점프할 수 있는 길이들을 반복문으로 돌리는 변수
                 for (int j = 1; j <= nums[x]; j++) {
+                    // queue 로 부터 현재 현수가 서있는 위치 정보 + 점프의 길이가
+                    // 마지막에 도착하게되면 return
                     if (x + j == (n - 1)) {
                         return L + 1;
                     }
+                    // 0으로 표시된 곳으로 점프하는지, 끝을 넘어가는지, 이미 갔던곳은 아닌지 체크
+                    // 아니라면 해당 위치의 check 변수를 1로 바꿔주고, queue 에 현재 점프한 위치 정보를 넣어준다
                     if (x + j >= 0 && x + j < n && ch[x + j] == 0) {
                         ch[x + j] = 1;
                         queue.offer(x + j);
