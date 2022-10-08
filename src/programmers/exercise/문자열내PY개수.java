@@ -10,7 +10,7 @@ s에 'p'의 개수와 'y'의 개수를 비교해 같으면 True, 다르면 False
 
 예를 들어 s가 "pPoooyY"면 true를 return하고 "Pyy"라면 false를 return합니다.
  */
-public class countPY {
+public class 문자열내PY개수 {
 
     public boolean solution(String s) {
         boolean answer = true;
@@ -38,7 +38,7 @@ public class countPY {
     }
 
     public static void main(String[] args) {
-        countPY T = new countPY();
+        문자열내PY개수 T = new 문자열내PY개수();
 
         System.out.println(T.solution("pPoooyY"));
         System.out.println(T.solution("Pyy"));

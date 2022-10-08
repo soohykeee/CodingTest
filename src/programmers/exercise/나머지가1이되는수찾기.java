@@ -7,7 +7,7 @@ package programmers.exercise;
 n을 x로 나눈 나머지가 1이 되도록 하는 가장 작은 자연수 x를 return 하도록 solution 함수를 완성해주세요.
 답이 항상 존재함은 증명될 수 있습니다.
  */
-public class findToRemain1 {
+public class 나머지가1이되는수찾기 {
 
     public int solution(int n) {
         int answer = 0;
@@ -22,7 +22,7 @@ public class findToRemain1 {
     }
 
     public static void main(String[] args) {
-        findToRemain1 T = new findToRemain1();
+        나머지가1이되는수찾기 T = new 나머지가1이되는수찾기();
 
         System.out.println(T.solution(10));
         System.out.println(T.solution(12));

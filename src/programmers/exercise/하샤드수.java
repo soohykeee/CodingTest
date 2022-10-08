@@ -8,7 +8,7 @@ package programmers.exercise;
 자연수 x를 입력받아 x가 하샤드 수인지 아닌지 검사하는 함수, solution을 완성해주세요.
  */
 
-public class harshadNumber {
+public class 하샤드수 {
 
     public int recursion(int x) {
         if (x < 10) {
@@ -29,7 +29,7 @@ public class harshadNumber {
     }
 
     public static void main(String[] args) {
-        harshadNumber T = new harshadNumber();
+        하샤드수 T = new 하샤드수();
 
         System.out.println(T.solution(10));
         System.out.println(T.solution(12));

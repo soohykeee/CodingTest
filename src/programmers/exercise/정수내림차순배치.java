@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
 n의 각 자릿수를 큰것부터 작은 순으로 정렬한 새로운 정수를 리턴해주세요.
 예를들어 n이 118372면 873211을 리턴하면 됩니다.
  */
-public class orderDesc {
+public class 정수내림차순배치 {
 
     public long solution(long n) {
         long answer = 0;
@@ -33,7 +33,7 @@ public class orderDesc {
     }
 
     public static void main(String[] args) {
-        orderDesc T = new orderDesc();
+        정수내림차순배치 T = new 정수내림차순배치();
 
         System.out.println(T.solution(118372));
 
