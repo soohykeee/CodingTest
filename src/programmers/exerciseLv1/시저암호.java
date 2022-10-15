@@ -13,6 +13,7 @@ public class 시저암호 {
         String answer = "";
         int temp = 0;
 
+
         for (int i = 0; i < s.length(); i++) {
             if (!Character.isAlphabetic(s.charAt(i))) {
                 answer += " ";
