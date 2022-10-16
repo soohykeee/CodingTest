@@ -17,16 +17,24 @@ package programmers.exerciseLv1;
 public class 비밀지도_1차 {
 
     public String[] solution(int n, int[] arr1, int[] arr2) {
-        String[] answer = {};
+        String[] answer = new String[n];
 
-        // 2진수로 변환하여 담아놓는 배열
-        int[] temp = new int[n];
+        /*
+        Tip  -> 비트 논리연산을 해야한다.
+        | -> 대응되는 비트 중에서 하나라도 1이면 1을 반환한다. (비트 OR 연산)
+        ^ -> 대응되는 비트가 서로 다르면 1을 반환한다. (비트 XOR 연산)
+        ~ -> 비트를 1이면 0으로, 0이면 1로 반전시킨다. (비트 NOT 연산)
+         */
 
-        for (int i = 0; i < arr1.length; i++) {
+        for (int i = 0; i < n; i++) {
+            // arr1, arr2를 2진수로 변환하는데, 비트 논리연산을 통해 둘중하나라도 1이면 1로 되도록 연산
+            String temp = Integer.toBinaryString(arr1[i] | arr2[i]);
+            temp = String.format("%" + n + "s", temp);
+            temp = temp.replaceAll("1", "#");
+            temp = temp.replaceAll("0", " ");
 
-
+            answer[i] = temp;
         }
-
 
         return answer;
     }
