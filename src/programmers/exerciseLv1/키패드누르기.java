@@ -20,7 +20,41 @@ public class 키패드누르기 {
     public String solution(int[] numbers, String hand) {
         String answer = "";
 
+        int left = 10;
+        int right = 12;
 
+        for (int x : numbers) {
+            if (x == 1 || x == 4 || x == 7) {
+                answer += "L";
+                left = x;
+            } else if (x == 3 || x == 6 || x == 9) {
+                answer += "R";
+                right = x;
+            } else {
+                if (x == 0) {
+                    x = 11;
+                }
+
+                int leftdist = Math.abs(x - left) % 3 + Math.abs(x - left) / 3;
+                int rightdist = Math.abs(x - right) % 3 + Math.abs(x - right) / 3;
+
+                if (leftdist > rightdist) {
+                    answer += "R";
+                    right = x;
+                } else if (rightdist > leftdist) {
+                    answer += "L";
+                    left = x;
+                } else {
+                    if (hand.equals("left")) {
+                        answer += "L";
+                        left = x;
+                    } else {
+                        answer +="R";
+                        right = x;
+                    }
+                }
+            }
+        }
 
         return answer;
     }
