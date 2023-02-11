@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /*
 백준 1463 - 1로 만들기
-
+Dynamic Programming
  */
 public class 백준1463 {
 

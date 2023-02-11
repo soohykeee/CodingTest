@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /*
 백준 2579 - 계단 오르기
-
+Dynamic Programming
  */
 public class 백준2579 {
 
