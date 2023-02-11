@@ -8,23 +8,29 @@ public class 카펫 {
 
     public int[] solution(int brown, int yellow) {
         int[] answer = new int[2];
-        int sum = brown + yellow;
+        int total = brown + yellow;
 
-        for (int i = 3; i < sum; i++) {
-            int j = sum / i;
-            if (sum % i == 0 && j >= 3) {
-                int col = Math.max(i, j);
-                int row = Math.min(i, j);
-                int center = (col - 2) * (row - 2);
+        for (int i = 3; i < total; i++) {
+            int j = total / i;
+            if (total % i == 0 && j >= 3) {
+                int width = Math.max(i, j);
+                int height = Math.min(i, j);
 
-                if (center == yellow) {
-                    answer[0]=col;
-                    answer[1] = row;
-                    return answer;
+                if ((width - 2) * (height - 2) == yellow) {
+                    answer[0] = width;
+                    answer[1] = height;
                 }
             }
         }
 
         return answer;
+    }
+
+    public static void main(String[] args) {
+        카펫 T = new 카펫();
+
+        System.out.println(T.solution(10, 2));
+        System.out.println(T.solution(8, 1));
+        System.out.println(T.solution(24, 24));
     }
 }
