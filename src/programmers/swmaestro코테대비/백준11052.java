@@ -1,16 +1,19 @@
-package programmers;
+package programmers.swmaestro코테대비;
 
 import java.util.Scanner;
 
-public class Main {
+/*
+백준 11052 - 카드 구매하기
+
+ */
+public class 백준11052 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int N = sc.nextInt();
-
-        int[] card = new int[N + 1];    // 카드팩 가격
-        int[] max = new int[N + 1];     // n개 카드 구매 시 최고값
+        int[] card = new int[N + 1];
+        int[] max = new int[N + 1];
 
         for (int i = 1; i <= N; i++) {
             card[i] = sc.nextInt();
