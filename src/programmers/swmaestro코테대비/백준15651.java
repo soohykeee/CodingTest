@@ -10,6 +10,7 @@ public class 백준15651 {
 
     static int N, M;
     static int[] arr;
+    public static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -19,14 +20,16 @@ public class 백준15651 {
         arr = new int[M];
 
         DFS(0);
+        System.out.println(sb);
+
     }
 
     static void DFS(int depth) {
         if (depth == M) {
             for (int i = 0; i < arr.length; i++) {
-                System.out.print(arr[i] + " ");
+                sb.append(arr[i] + " ");
             }
-            System.out.println();
+            sb.append('\n');
             return;
         }
 
