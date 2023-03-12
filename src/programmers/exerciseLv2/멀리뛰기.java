@@ -8,7 +8,6 @@ public class 멀리뛰기 {
 
 
     public long solution(int n) {
-        long answer = 0;
         long[] dp = new long[2001];
 
         dp[1] = 1;
