@@ -3,32 +3,41 @@ package programmers.exerciseLv2;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+/*
+귤 고르기 - 연습문제 lv.2
+
+ */
 public class 귤고르기 {
 
-    private Map<Integer, Integer> map;
     public int solution(int k, int[] tangerine) {
         int answer = 0;
 
-        // 크기별로 몇 개 있는지 map에 저장함
-        map = new HashMap<>();
-        for (int tan : tangerine) {
-            map.put(tan, map.getOrDefault(tan, 0)+1);
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int key : tangerine) {
+            map.put(key, map.getOrDefault(key, 0) + 1);
         }
 
-        // 개수(value)가 많은 순으로 정렬
-        List<Map.Entry<Integer, Integer>> entryList = new ArrayList<>(map.entrySet());
-        entryList.sort((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
+        List<Integer> keyList = new ArrayList<>(map.keySet());
+        keyList.sort((o1, o2) -> map.get(o2) - map.get(o1));
 
-        // 개수가 많은 순부터 사용
-        for (Map.Entry<Integer, Integer> entry : entryList) {
-            if(k<=0) break;
+        int i = 0;
+        while (k > 0) {
+            k -= map.get(keyList.get(i));
             answer++;
-            k -= entry.getValue();
+            i++;
         }
 
         return answer;
+    }
+
+    public static void main(String[] args) {
+        귤고르기 T = new 귤고르기();
+
+        System.out.println(T.solution(6, new int[]{1, 3, 2, 5, 4, 5, 2, 3}));
+        System.out.println(T.solution(4, new int[]{1, 3, 2, 5, 4, 5, 2, 3}));
+        System.out.println(T.solution(2, new int[]{1, 1, 1, 1, 2, 2, 2, 3}));
     }
 
 }
