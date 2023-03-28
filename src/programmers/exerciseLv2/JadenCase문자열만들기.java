@@ -20,7 +20,6 @@ public class JadenCase문자열만들기 {
             }
             answer += " ";
 
-
         }
 
         if(s.endsWith(" ")){
