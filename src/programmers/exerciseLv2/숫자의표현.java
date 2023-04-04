@@ -18,10 +18,8 @@ public class 숫자의표현 {
             } else if (sum > answer) {
                 return false;
             } else {
-                continue;
             }
         }
-
         return false;
     }
 
