@@ -1,7 +1,5 @@
 package programmers.exerciseLv2;
 
-import java.math.BigInteger;
-
 /*
 피보나치 수 - 연습문제 lv.2
 

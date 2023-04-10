@@ -1,14 +1,17 @@
 package programmers.exerciseLv2;
 
+/*
+다음 큰 숫자 - 연습문제 lv.2
+
+ */
+
 public class 다음큰숫자 {
 
     public int solution(int n) {
-        int answer = 0;
+        int answer, count;
+        int limit = 0;
 
         String temp = Integer.toBinaryString(n);
-
-        int limit = 0;
-        int count = 0;
 
         for (int i = 0; i < temp.length(); i++) {
             if (temp.charAt(i) == '1') {
