@@ -21,8 +21,7 @@ public class 다음큰숫자 {
 
         while (true) {
             count = 0;
-            n++;
-            temp = Integer.toBinaryString(n);
+            temp = Integer.toBinaryString(++n);
 
             for (int i = 0; i < temp.length(); i++) {
                 if (temp.charAt(i) == '1') {

@@ -9,15 +9,11 @@ public class 피보나치수 {
     public int solution(int n) {
         int answer[] = new int[n + 1];
 
-        for (int i = 0; i <= n; i++) {
-            if (i == 0) {
-                answer[i] = 0;
-            } else if (i == 1) {
-                answer[i] = 1;
-            } else {
-                int sum = answer[i - 2] + answer[i - 1];
-                answer[i] = sum % 1234567;
-            }
+        answer[0] = 0;
+        answer[1] = 1;
+
+        for (int i = 2; i <= n; i++) {
+            answer[i] = (answer[i - 2] + answer[i - 1]) % 1234567;
         }
 
         return answer[n];
