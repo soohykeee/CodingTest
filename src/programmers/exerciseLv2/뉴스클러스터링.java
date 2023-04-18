@@ -46,10 +46,6 @@ public class 뉴스클러스터링 {
             }
         }
 
-        // 중복원소 처리 위한 정렬
-        Collections.sort(strList1);
-        Collections.sort(strList2);
-
         // 교집합 구하기
         for (String s : strList1) {
             if (strList2.remove(s)) {
