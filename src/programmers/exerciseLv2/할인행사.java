@@ -10,38 +10,32 @@ public class 할인행사 {
 
     public int solution(String[] want, int[] number, String[] discount) {
         int answer = 0;
-        int count = 0;
-
         HashMap<String, Integer> map = new HashMap<>();
-        HashMap<String, Integer> copy = new HashMap<>();
 
+        // 초기값 세팅
         for (int i = 0; i < want.length; i++) {
             map.put(want[i], number[i]);
-            copy.put(want[i], number[i]);
         }
 
-        for (int i = 0; i < discount.length - 9; i++) {
-            count = 0;
-            map.putAll(copy);
-            System.out.println("map " + map);
-            System.out.println("copy " + copy);
+        // discount의 i ~ i+10 까지 값들을 저장
+        for (int i = 0; i <= discount.length - 10; i++) {
+            HashMap<String, Integer> temp = new HashMap<>();
+            for (int j = i; j < i + 10; j++) {
+                temp.put(discount[j], temp.getOrDefault(discount[j], 0) + 1);
+            }
 
-            for (int j = i; j < discount.length; j++) {
-                if (count == 10) {
-                    answer++;
+            // key 값으로 값 비교
+            // getOrDefault 하지 않으면 temp에 없는 값이 들어가면 NullPointException 발생
+            boolean check = true;
+            for (String key : map.keySet()) {
+                if (map.get(key) > temp.getOrDefault(key, 0)) {
+                    check = false;
                     break;
                 }
+            }
 
-                if (!map.containsKey(discount[j])) {
-                    break;
-                } else {
-                    count++;
-                    if (map.get(discount[j]) != 1) {
-                        map.replace(discount[j], map.get(discount[j]) - 1);
-                    } else {
-                        map.remove(map.get(discount[j]));
-                    }
-                }
+            if (check) {
+                answer++;
             }
         }
 
