@@ -7,6 +7,7 @@ JadenCase 문자열 만들기 - 연습문제 lv.2
 public class JadenCase문자열만들기 {
 
     public String solution(String s) {
+        // test
         String answer = "";
 
         String[] arr = s.split(" ");
