@@ -5,7 +5,6 @@ N개의 최소공배수 - 연습문제 lv.2
 
  */
 public class n개의최소공배수 {
-
     public int solution(int[] arr) {
         int answer = 0;
 
