@@ -31,6 +31,7 @@ public class 피로도 {
     public static void main(String[] args) {
         피로도 T = new 피로도();
 
+        //초기피로도, [최소필요피로도, 소모피로도]
         System.out.println(T.solution(80, new int[][]{{80, 20}, {50, 40}, {30, 10}}));
     }
 }
