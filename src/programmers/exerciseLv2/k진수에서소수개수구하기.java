@@ -9,7 +9,7 @@ public class k진수에서소수개수구하기 {
 
     // 소수인지 확인하는 함수
     // long 으로 수정 필요
-    public boolean isPrime(int number) {
+    public boolean isPrime(Long number) {
         if (number == 1) {
             return false;
         }
@@ -34,14 +34,14 @@ public class k진수에서소수개수구하기 {
             if (convert.charAt(i) != '0') {
                 temp += convert.charAt(i);
             } else {
-                if (temp.length() > 0 && isPrime(Integer.parseInt(temp))) {
+                if (temp.length() > 0 && isPrime(Long.parseLong(temp))) {
                     answer++;
                 }
                 temp="";
             }
         }
 
-        if (temp.length() > 0 && isPrime(Integer.parseInt(temp))) {
+        if (temp.length() > 0 && isPrime(Long.parseLong(temp))) {
             answer++;
         }
 
