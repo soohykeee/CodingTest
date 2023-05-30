@@ -14,6 +14,8 @@ public class k진수에서소수개수구하기 {
             return false;
         }
 
+        // Math.sqrt() 메서드 사용 안해주면 1번에서 시간초과 발생
+        // + 소수 체크 파라미터를 Long으로 해주지 않으면 시간초과 발생
         for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
                 return false;
