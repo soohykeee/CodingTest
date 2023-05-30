@@ -14,7 +14,7 @@ public class k진수에서소수개수구하기 {
             return false;
         }
 
-        for (int i = 2; i * i <= number; i++) {
+        for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
                 return false;
             }
@@ -37,7 +37,7 @@ public class k진수에서소수개수구하기 {
                 if (temp.length() > 0 && isPrime(Long.parseLong(temp))) {
                     answer++;
                 }
-                temp="";
+                temp = "";
             }
         }
 
