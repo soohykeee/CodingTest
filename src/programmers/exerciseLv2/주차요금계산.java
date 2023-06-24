@@ -21,7 +21,7 @@ public class 주차요금계산 {
             feeMap.put(records[i].split(" ")[1], 0);
         }
 
-
+        // IN OUT 시간 계산
         for (int i = 0; i < records.length; i++) {
             String[] infos = records[i].split(" ");
 
@@ -56,7 +56,7 @@ public class 주차요금계산 {
                     Integer.parseInt(o1.getKey()) < Integer.parseInt(o2.getKey()) ? -1 : 0;
         });
 
-
+        // 정답 출력을 위해 사용
         answer = new int[list.size()];
         for (int i = 0; i < answer.length; i++) {
             if (list.get(i).getValue() > fees[0]) {
